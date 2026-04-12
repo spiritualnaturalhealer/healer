@@ -52,10 +52,19 @@
 
   .nav-logo {
     font-family: 'Cinzel Decorative', serif;
-    font-size: 1.1rem;
-    color: var(--gold);
-    letter-spacing: 0.08em;
+    font-size: 0.88rem;
+    color: var(--deep);
+    letter-spacing: 0.06em;
     text-decoration: none;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    padding: 0.45rem 1.1rem;
+    border-radius: 3px;
+    box-shadow: 0 0 14px rgba(201,168,76,0.45), 0 0 30px rgba(201,168,76,0.18);
+    transition: box-shadow 0.3s;
+  }
+
+  .nav-logo:hover {
+    box-shadow: 0 0 20px rgba(201,168,76,0.7), 0 0 40px rgba(201,168,76,0.3);
   }
 
   .nav-links {
@@ -495,7 +504,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">Jyotir Mukti</a>
+  <a href="#" class="nav-logo">Spiritual Natural Healer</a>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#mantras">Mantras</a></li>
@@ -672,11 +681,11 @@
     <h2 class="section-title">Reach Out</h2>
     <p class="section-intro">Ready to begin? Reach out through email or Instagram. All correspondence is sacred and confidential.</p>
     <div style="display:flex; flex-direction:column; gap:1.4rem; margin-top:2.5rem; align-items:center;">
-      <a href="mailto:spiritual.natural.healer@gmail.com" style="display:flex; align-items:center; gap:1rem; background:rgba(26,18,48,0.7); border:1px solid rgba(201,168,76,0.25); padding:1.2rem 2rem; text-decoration:none; transition:border-color 0.3s; width:100%; max-width:420px;">
+      <a href="/cdn-cgi/l/email-protection#4e3d3e273c273a3b2f2260202f3a3b3c2f2260262b2f222b3c0e29232f2722602d2123" style="display:flex; align-items:center; gap:1rem; background:rgba(26,18,48,0.7); border:1px solid rgba(201,168,76,0.25); padding:1.2rem 2rem; text-decoration:none; transition:border-color 0.3s; width:100%; max-width:420px;">
         <span style="font-size:1.4rem;">✉️</span>
         <div style="text-align:left;">
           <p style="font-family:'Raleway',sans-serif; font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:0.2rem;">Email</p>
-          <p style="font-family:'Cormorant Garamond',serif; font-size:1rem; color:var(--gold-light);">spiritual.natural.healer@gmail.com</p>
+          <p style="font-family:'Cormorant Garamond',serif; font-size:1rem; color:var(--gold-light);"><span class="__cf_email__" data-cfemail="6211120b100b1617030e4c0c03161710030e4c0a07030e071022050f030b0e4c010d0f">[email&#160;protected]</span></p>
         </div>
       </a>
       <a href="https://www.instagram.com/spiritual.natural.healer/" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:1rem; background:rgba(26,18,48,0.7); border:1px solid rgba(201,168,76,0.25); padding:1.2rem 2rem; text-decoration:none; transition:border-color 0.3s; width:100%; max-width:420px;">
@@ -703,7 +712,7 @@
   <p class="footer-copy">© 2025 Jyotir Mukti · All sessions held in sacred confidence</p>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const canvas = document.getElementById('stars-canvas');
 const ctx = canvas.getContext('2d');
 let stars = [];
@@ -732,18 +741,4 @@ function drawStars(t) {
   stars.forEach(s => {
     const alpha = s.a * (0.5 + 0.5 * Math.sin(t * s.speed + s.phase));
     ctx.beginPath();
-    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(201,168,76,${alpha * 0.7})`;
-    ctx.fill();
-  });
-  requestAnimationFrame(drawStars);
-}
-
-resize();
-initStars();
-requestAnimationFrame(drawStars);
-window.addEventListener('resize', () => { resize(); initStars(); });
-</script>
-
-</body>
-</html>
+    ctx.arc(s.x, s.y, s.r, 0, Math.PI *
