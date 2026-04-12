@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akasha Healing — Clairvoyant & Mantra Healing</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --gold-pale: #F5E9C8;
+    --deep: #0D0A1A;
+    --deep2: #150F2A;
+    --deep3: #1E1535;
+    --mist: #E8E3F5;
+    --text: #F0EAF8;
+    --text-muted: #A898C8;
+    --accent: #7B4FA6;
+    --accent2: #4A2875;
+    --teal: #3DBFAE;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--deep);
+    color: var(--text);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* Stars bg */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 30% 40%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 55% 10%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 70% 60%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 85% 25%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 20% 75%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 90% 80%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 45% 90%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 65% 45%, rgba(255,255,255,0.6) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    padding: 1.2rem 5%;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(13,10,26,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid rgba(201,168,76,0.2);
+  }
+  .nav-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 1.3rem;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+  }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 8rem 5% 5rem;
+    overflow: hidden;
+  }
+  .hero-glow {
+    position: absolute;
+    width: 700px; height: 700px;
+    background: radial-gradient(ellipse, rgba(123,79,166,0.28) 0%, transparent 70%);
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+  .hero-circle {
+    position: absolute;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    border: 0.5px solid rgba(201,168,76,0.15);
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+    animation: rotate 40s linear infinite;
+  }
+  .hero-circle::before {
+    content: '';
+    position: absolute;
+    width: 650px; height: 650px;
+    border-radius: 50%;
+    border: 0.5px solid rgba(201,168,76,0.08);
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+  }
+  @keyframes rotate { from { transform: translate(-50%,-50%) rotate(0deg); } to { transform: translate(-50%,-50%) rotate(360deg); } }
+
+  .hero-om {
+    font-size: 5rem;
+    color: var(--gold);
+    opacity: 0.12;
+    position: absolute;
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+    animation: pulse 6s ease-in-out infinite;
+    pointer-events: none;
+    font-family: 'Cormorant Garamond', serif;
+  }
+  @keyframes pulse { 0%,100% { opacity: 0.08; } 50% { opacity: 0.2; } }
+
+  .hero-content { position: relative; z-index: 1; }
+  .hero-tag {
+    font-size: 0.72rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+  .hero h1 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    font-weight: 400;
+    line-height: 1.1;
+    color: #fff;
+    margin-bottom: 0.3rem;
+  }
+  .hero h1 em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.15em;
+    color: var(--gold-light);
+  }
+  .hero-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.35rem;
+    color: var(--text-muted);
+    margin: 1.2rem auto 2.5rem;
+    max-width: 520px;
+    line-height: 1.7;
+  }
+  .btn-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn-gold {
+    padding: 0.85rem 2.5rem;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    color: var(--deep);
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+    font-size: 0.82rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: opacity 0.3s, transform 0.2s;
+  }
+  .btn-gold:hover { opacity: 0.88; transform: translateY(-1px); }
+  .btn-outline {
+    padding: 0.85rem 2.5rem;
+    border: 0.5px solid rgba(201,168,76,0.5);
+    color: var(--gold);
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 0.82rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background 0.3s, border-color 0.3s;
+  }
+  .btn-outline:hover { background: rgba(201,168,76,0.08); border-color: var(--gold); }
+
+  /* scroll hint */
+  .scroll-hint {
+    position: absolute;
+    bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
+  }
+  .scroll-hint span {
+    font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--text-muted);
+  }
+  .scroll-line {
+    width: 0.5px; height: 40px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollDown 2s ease-in-out infinite;
+  }
+  @keyframes scrollDown { 0%,100% { transform: scaleY(1); opacity: 0.6; } 50% { transform: scaleY(1.3); opacity: 1; } }
+
+  /* ── SECTION BASE ── */
+  section { position: relative; padding: 6rem 5%; }
+  .section-label {
+    font-size: 0.68rem; letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.8rem; display: block;
+  }
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 400;
+    color: #fff; margin-bottom: 1rem;
+  }
+  .section-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    max-width: 600px;
+  }
+  .divider {
+    width: 60px; height: 0.5px;
+    background: linear-gradient(to right, var(--gold), transparent);
+    margin: 2rem 0;
+  }
+
+  /* ── SERVICES ── */
+  .services-bg {
+    background: linear-gradient(180deg, var(--deep) 0%, var(--deep2) 50%, var(--deep) 100%);
+  }
+  .services-header { text-align: center; margin-bottom: 4rem; }
+  .services-header .section-desc { margin: 0 auto; }
+  .services-header .divider { margin: 2rem auto; }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5px;
+    max-width: 1200px;
+    margin: 0 auto;
+    border: 0.5px solid rgba(201,168,76,0.15);
+  }
+  .service-card {
+    padding: 3rem 2.5rem;
+    background: rgba(21,15,42,0.8);
+    border: 0.5px solid rgba(201,168,76,0.1);
+    transition: background 0.4s, border-color 0.4s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 0;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    transition: height 0.4s;
+  }
+  .service-card:hover::before { height: 100%; }
+  .service-card:hover { background: rgba(30,21,53,0.95); border-color: rgba(201,168,76,0.25); }
+  .service-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    display: block;
+    line-height: 1;
+  }
+  .service-card h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.05rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: var(--gold-light);
+    margin-bottom: 0.8rem;
+  }
+  .service-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+  }
+  .service-mantra {
+    margin-top: 1.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: rgba(201,168,76,0.6);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── ABOUT ── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  @media (max-width: 768px) {
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .nav-links { display: none; }
+  }
+  .about-visual {
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+    min-height: 420px;
+  }
+  .yantra-svg { width: 100%; max-width: 380px; opacity: 0.85; }
+  .about-text .section-desc { max-width: 100%; margin-bottom: 2rem; }
+  .about-stats {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1.5rem; margin-top: 2.5rem;
+  }
+  .stat-item { border-left: 0.5px solid rgba(201,168,76,0.3); padding-left: 1.2rem; }
+  .stat-num {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem; font-weight: 400; color: var(--gold);
+    display: block; margin-bottom: 0.2rem;
+  }
+  .stat-label { font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); }
+
+  /* ── MANTRAS ── */
+  .mantras-bg { background: var(--deep2); }
+  .mantras-header { text-align: center; margin-bottom: 4rem; }
+  .mantras-header .divider { margin: 2rem auto; }
+  .mantras-list {
+    display: flex; flex-direction: column; gap: 1px;
+    max-width: 900px; margin: 0 auto;
+    border: 0.5px solid rgba(201,168,76,0.1);
+  }
+  .mantra-item {
+    padding: 2rem 2.5rem;
+    background: rgba(13,10,26,0.7);
+    display: grid; grid-template-columns: 80px 1fr 120px;
+    align-items: center; gap: 2rem;
+    transition: background 0.3s;
+    cursor: default;
+  }
+  .mantra-item:hover { background: rgba(21,15,42,0.95); }
+  .mantra-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem; font-weight: 300;
+    color: rgba(201,168,76,0.2);
+    line-height: 1;
+  }
+  .mantra-name {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem; font-weight: 400;
+    color: var(--gold-light); margin-bottom: 0.4rem;
+  }
+  .mantra-devanagari {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 0.4rem;
+  }
+  .mantra-desc { font-size: 0.85rem; color: var(--text-muted); }
+  .mantra-tag {
+    text-align: right;
+    font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--teal);
+    opacity: 0.7;
+  }
+
+  /* ── PROCESS ── */
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0;
+    max-width: 1200px;
+    margin: 4rem auto 0;
+    position: relative;
+  }
+  .process-step {
+    padding: 3rem 2rem;
+    text-align: center;
+    border-right: 0.5px solid rgba(201,168,76,0.1);
+    position: relative;
+  }
+  .process-step:last-child { border-right: none; }
+  .process-num {
+    display: inline-block;
+    width: 48px; height: 48px;
+    border: 0.5px solid rgba(201,168,76,0.4);
+    border-radius: 50%;
+    line-height: 48px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    color: var(--gold);
+    margin: 0 auto 1.5rem;
+  }
+  .process-step h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 0.95rem; font-weight: 400;
+    color: #fff; margin-bottom: 0.8rem;
+  }
+  .process-step p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.7; }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials-bg { background: var(--deep2); }
+  .testimonials-header { text-align: center; margin-bottom: 4rem; }
+  .testimonials-header .divider { margin: 2rem auto; }
+  .testimonials-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem; max-width: 1100px; margin: 0 auto;
+  }
+  .testimonial-card {
+    padding: 2.5rem;
+    background: rgba(13,10,26,0.6);
+    border: 0.5px solid rgba(201,168,76,0.1);
+    border-radius: 2px;
+    position: relative;
+  }
+  .testimonial-card::before {
+    content: '\201C';
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 6rem; line-height: 1;
+    color: rgba(201,168,76,0.08);
+    position: absolute; top: 1rem; left: 1.5rem;
+  }
+  .testimonial-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--text);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    position: relative; z-index: 1;
+  }
+  .testimonial-author {
+    font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.25rem;
+  }
+  .testimonial-place { font-size: 0.78rem; color: var(--text-muted); }
+  .stars { color: var(--gold); font-size: 0.75rem; margin-bottom: 1rem; letter-spacing: 0.1em; }
+
+  /* ── BOOKING ── */
+  .booking-wrap {
+    max-width: 680px; margin: 0 auto;
+    text-align: center;
+  }
+  .booking-wrap .section-title { margin-bottom: 0.5rem; }
+  .booking-wrap .section-desc { margin: 0 auto 3rem; text-align: center; }
+  .booking-wrap .divider { margin: 2rem auto; }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; text-align: left; }
+  .form-full { grid-column: 1 / -1; }
+  .field { display: flex; flex-direction: column; gap: 0.5rem; }
+  .field label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); }
+  .field input, .field select, .field textarea {
+    background: rgba(30,21,53,0.6);
+    border: 0.5px solid rgba(201,168,76,0.2);
+    color: var(--text);
+    padding: 0.9rem 1.2rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+    outline: none;
+    border-radius: 2px;
+    transition: border-color 0.3s;
+    width: 100%;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    border-color: rgba(201,168,76,0.5);
+  }
+  .field select option { background: var(--deep2); }
+  .field textarea { resize: vertical; min-height: 120px; }
+  .form-submit {
+    margin-top: 2rem;
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    color: var(--deep);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: opacity 0.3s;
+  }
+  .form-submit:hover { opacity: 0.88; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: rgba(8,5,15,0.95);
+    border-top: 0.5px solid rgba(201,168,76,0.1);
+    padding: 4rem 5% 2rem;
+    text-align: center;
+  }
+  .footer-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem; color: var(--gold);
+    letter-spacing: 0.1em; margin-bottom: 0.5rem;
+  }
+  .footer-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--text-muted); margin-bottom: 2.5rem;
+  }
+  .footer-links { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem; }
+  .footer-links a {
+    font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--text-muted); text-decoration: none; transition: color 0.3s;
+  }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-copy { font-size: 0.75rem; color: rgba(168,152,200,0.4); }
+
+  /* ── FLOAT AURA ── */
+  .aura {
+    position: absolute; border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(123,79,166,0.15), transparent 70%);
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">✦ Akasha Healing</div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#mantras">Mantras</a></li>
+    <li><a href="#book">Book</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-glow"></div>
+  <div class="hero-circle"></div>
+  <div class="hero-om">ॐ</div>
+  <div class="hero-content">
+    <span class="hero-tag">Sacred Healing Arts</span>
+    <h1>Awaken the<br><em>Light Within</em></h1>
+    <p class="hero-sub">Clairvoyant readings, Vedic mantra therapy, and energy healing to illuminate your path and restore divine harmony</p>
+    <div class="btn-group">
+      <a href="#book" class="btn-gold">Book a Session</a>
+      <a href="#services" class="btn-outline">Explore Services</a>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-bg" id="services">
+  <div class="services-header">
+    <span class="section-label">What We Offer</span>
+    <h2 class="section-title">Sacred Services</h2>
+    <div class="divider"></div>
+    <p class="section-desc">Each session is a doorway — into deeper knowing, ancestral healing, and the luminous architecture of your soul's journey.</p>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="service-icon">👁</span>
+      <h3>Clairvoyant Reading</h3>
+      <p>Receive clear spiritual sight into relationships, life purpose, soul contracts, and karmic patterns. Ajna chakra activation guides each reading.</p>
+      <p class="service-mantra">Om Aim Hreem Kleem — Activate inner vision</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🔔</span>
+      <h3>Maha Mrityunjaya Healing</h3>
+      <p>108-round japa sadhana for healing, protection, and liberation from chronic suffering — physical, emotional, and karmic.</p>
+      <p class="service-mantra">ॐ त्र्यम्बकं यजामहे…</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">✦</span>
+      <h3>Jyotish Consultation</h3>
+      <p>Vedic natal chart analysis covering Mahadasha cycles, planetary remedies, Nakshatra insights, and spiritual timing.</p>
+      <p class="service-mantra">Aligned with Graha and Karma</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🌿</span>
+      <h3>Ancestral Tarpana Ritual</h3>
+      <p>Pitru healing through traditional water offerings and mantra — releasing ancestral karma and inviting the blessings of forebears.</p>
+      <p class="service-mantra">Amavasya & Mahalaya Paksha</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🌸</span>
+      <h3>Chakra & Pranayama Therapy</h3>
+      <p>Nadi Shodhana pranayama, chakra balancing, and bija mantra activation. Customised for your constitution and doshic needs.</p>
+      <p class="service-mantra">Breath as the bridge to source</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">◎</span>
+      <h3>Yantra Consecration</h3>
+      <p>Handcrafted sacred geometry — Mritunjaya, Sri Yantra, Ganesha — with Prana Pratishtha ritual for installation and daily use.</p>
+      <p class="service-mantra">Form as a vessel of consciousness</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="aura" style="width:600px;height:600px;top:-100px;right:-200px;"></div>
+  <div class="about-grid">
+    <div class="about-visual">
+      <!-- Yantra SVG -->
+      <svg class="yantra-svg" viewBox="0 0 380 380" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="yglow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#C9A84C" stop-opacity="0.2"/>
+            <stop offset="100%" stop-color="#C9A84C" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <circle cx="190" cy="190" r="180" fill="url(#yglow)" stroke="rgba(201,168,76,0.1)" stroke-width="0.5"/>
+        <!-- Outer square -->
+        <rect x="30" y="30" width="320" height="320" fill="none" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
+        <rect x="42" y="42" width="296" height="296" fill="none" stroke="rgba(201,168,76,0.15)" stroke-width="0.5"/>
+        <!-- Lotus petals 16 -->
+        <circle cx="190" cy="190" r="140" fill="none" stroke="rgba(201,168,76,0.2)" stroke-width="0.5"/>
+        <circle cx="190" cy="190" r="110" fill="none" stroke="rgba(201,168,76,0.15)" stroke-width="0.5"/>
+        <!-- Triangle upward -->
+        <polygon points="190,60 310,280 70,280" fill="none" stroke="rgba(201,168,76,0.55)" stroke-width="0.8"/>
+        <!-- Triangle downward -->
+        <polygon points="190,320 70,100 310,100" fill="none" stroke="rgba(201,168,76,0.55)" stroke-width="0.8"/>
+        <!-- Inner triangle up -->
+        <polygon points="190,110 270,240 110,240" fill="none" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
+        <!-- Inner triangle down -->
+        <polygon points="190,270 110,140 270,140" fill="none" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
+        <!-- Center bindu -->
+        <circle cx="190" cy="190" r="6" fill="rgba(201,168,76,0.8)"/>
+        <circle cx="190" cy="190" r="18" fill="none" stroke="rgba(201,168,76,0.4)" stroke-width="0.5"/>
+        <circle cx="190" cy="190" r="35" fill="none" stroke="rgba(201,168,76,0.2)" stroke-width="0.5"/>
+        <!-- OM text -->
+        <text x="190" y="200" text-anchor="middle" font-family="serif" font-size="22" fill="rgba(201,168,76,0.7)">ॐ</text>
+      </svg>
+    </div>
+    <div class="about-text">
+      <span class="section-label">The Lineage</span>
+      <h2 class="section-title">Rooted in Ancient Wisdom</h2>
+      <div class="divider"></div>
+      <p class="section-desc">Drawing from Vedic tradition, Jyotish, and direct yogic experience, our practice bridges the timeless wisdom of the rishis with the living reality of your soul's evolution.</p>
+      <p class="section-desc" style="margin-top:1rem;">Each session is held with deep respect for the sacred — mantras transmitted with correct pronunciation, rituals performed with traditional integrity, and healing offered with ahimsa at its heart.</p>
+      <div class="about-stats">
+        <div class="stat-item">
+          <span class="stat-num">108</span>
+          <span class="stat-label">Mantra cycles per healing</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">12+</span>
+          <span class="stat-label">Years of sadhana</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">500+</span>
+          <span class="stat-label">Souls guided</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">7</span>
+          <span class="stat-label">Chakra modalities</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MANTRAS -->
+<section class="mantras-bg" id="mantras">
+  <div class="mantras-header">
+    <span class="section-label">Sacred Syllables</span>
+    <h2 class="section-title">Healing Mantras</h2>
+    <div class="divider"></div>
+    <p class="section-desc" style="margin:0 auto;">Mantras are not words — they are living vibrational frequencies that reorganise the subtle body and invoke divine qualities.</p>
+  </div>
+  <div class="mantras-list">
+    <div class="mantra-item">
+      <div class="mantra-num">01</div>
+      <div>
+        <div class="mantra-name">Maha Mrityunjaya</div>
+        <div class="mantra-devanagari">ॐ त्र्यम्बकं यजामहे सुगन्धिं पुष्टिवर्धनम्</div>
+        <div class="mantra-desc">The great liberator — for healing, longevity, and release from fear of death</div>
+      </div>
+      <div class="mantra-tag">Shiva · Healing</div>
+    </div>
+    <div class="mantra-item">
+      <div class="mantra-num">02</div>
+      <div>
+        <div class="mantra-name">Gayatri Mantra</div>
+        <div class="mantra-devanagari">ॐ भूर्भुवः स्वः तत्सवितुर्वरेण्यम्</div>
+        <div class="mantra-desc">Solar illumination of the intellect — the mother of all Vedic mantras</div>
+      </div>
+      <div class="mantra-tag">Surya · Clarity</div>
+    </div>
+    <div class="mantra-item">
+      <div class="mantra-num">03</div>
+      <div>
+        <div class="mantra-name">Om Namah Shivaya</div>
+        <div class="mantra-devanagari">ॐ नमः शिवाय</div>
+        <div class="mantra-desc">The Panchakshara — five elements purified, Ajna awakened, ego dissolved</div>
+      </div>
+      <div class="mantra-tag">Shiva · Liberation</div>
+    </div>
+    <div class="mantra-item">
+      <div class="mantra-num">04</div>
+      <div>
+        <div class="mantra-name">Ganapati Atharvashirsha</div>
+        <div class="mantra-devanagari">ॐ गं गणपतये नमः</div>
+        <div class="mantra-desc">Obstacle removal, new beginnings, Muladhara grounding, creative intelligence</div>
+      </div>
+      <div class="mantra-tag">Ganesha · Beginnings</div>
+    </div>
+    <div class="mantra-item">
+      <div class="mantra-num">05</div>
+      <div>
+        <div class="mantra-name">Budha Kavacham</div>
+        <div class="mantra-devanagari">ॐ बुं बुधाय नमः</div>
+        <div class="mantra-desc">Mercury protection mantra — strengthens communication, intelligence, and nervous system</div>
+      </div>
+      <div class="mantra-tag">Budha · Wednesday</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section>
+  <div style="text-align:center; max-width:600px; margin:0 auto 0;">
+    <span class="section-label">How It Works</span>
+    <h2 class="section-title">Your Healing Journey</h2>
+    <div class="divider" style="margin:2rem auto;"></div>
+  </div>
+  <div class="process-grid">
+    <div class="process-step">
+      <div class="process-num">I</div>
+      <h4>Intention Setting</h4>
+      <p>Share your question, concern, or desire for healing. We listen with full presence.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-num">II</div>
+      <h4>Chart & Energy Reading</h4>
+      <p>Jyotish analysis and clairvoyant scan reveal karmic patterns and energetic blocks.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-num">III</div>
+      <h4>Mantra Prescription</h4>
+      <p>A personalised mantra sadhana is crafted — with timing, count, and method.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-num">IV</div>
+      <h4>Integration & Follow-up</h4>
+      <p>Ongoing support, ritual guidance, and a follow-up reading after 40 days.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-bg">
+  <div class="testimonials-header">
+    <span class="section-label">Voices of Healing</span>
+    <h2 class="section-title">What Seekers Say</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="stars">★ ★ ★ ★ ★</div>
+      <p class="testimonial-text">The Maha Mrityunjaya healing session shifted something in me I had carried for decades. The mantra transmission was powerful and the reading was extraordinarily accurate.</p>
+      <div class="testimonial-author">Ananya R.</div>
+      <div class="testimonial-place">Bengaluru, India</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★ ★ ★ ★ ★</div>
+      <p class="testimonial-text">I came with a long-standing health concern and left with a Surya Arghya practice and Saturn remedy that genuinely changed my daily experience. Deeply grateful.</p>
+      <div class="testimonial-author">Pradeep M.</div>
+      <div class="testimonial-place">Thiruvananthapuram, Kerala</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★ ★ ★ ★ ★</div>
+      <p class="testimonial-text">The Jyotish reading was unlike any I've had — not just predictive, but genuinely healing. The ancestral tarpana guidance cleared something in my family lineage.</p>
+      <div class="testimonial-author">Meera K.</div>
+      <div class="testimonial-place">Singapore</div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section id="book">
+  <div class="aura" style="width:500px;height:500px;bottom:0;left:-150px;"></div>
+  <div class="booking-wrap">
+    <span class="section-label">Begin Your Journey</span>
+    <h2 class="section-title">Book a Session</h2>
+    <div class="divider"></div>
+    <p class="section-desc">All sessions are conducted online via video or phone. In-person sessions available in Kochi / Thiruvananthapuram.</p>
+    <br>
+    <div class="form-grid">
+      <div class="field">
+        <label>Your Name</label>
+        <input type="text" placeholder="Full name">
+      </div>
+      <div class="field">
+        <label>Email</label>
+        <input type="email" placeholder="your@email.com">
+      </div>
+      <div class="field">
+        <label>Phone / WhatsApp</label>
+        <input type="tel" placeholder="+91 …">
+      </div>
+      <div class="field">
+        <label>Date of Birth</label>
+        <input type="date">
+      </div>
+      <div class="field form-full">
+        <label>Service Requested</label>
+        <select>
+          <option value="">Select a service…</option>
+          <option>Clairvoyant Reading</option>
+          <option>Maha Mrityunjaya Healing</option>
+          <option>Jyotish Consultation</option>
+          <option>Ancestral Tarpana Ritual</option>
+          <option>Chakra & Pranayama Therapy</option>
+          <option>Yantra Consecration</option>
+          <option>Full Healing Package</option>
+        </select>
+      </div>
+      <div class="field form-full">
+        <label>Your Intention or Question</label>
+        <textarea placeholder="Share what brings you here — your question, concern, or healing intention…"></textarea>
+      </div>
+    </div>
+    <button class="form-submit">Request Appointment ✦</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">✦ Akasha Healing</div>
+  <p class="footer-tagline">Illuminating the path between the worlds</p>
+  <div class="footer-links">
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#mantras">Mantras</a>
+    <a href="#book">Book</a>
+    <a href="#">Privacy</a>
+  </div>
+  <p class="footer-copy">© 2025 Akasha Healing · Kerala, India · All sacred content offered in the spirit of seva</p>
+</footer>
+
+</body>
+</html>
